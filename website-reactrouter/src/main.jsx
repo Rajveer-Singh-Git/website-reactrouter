@@ -3,7 +3,8 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router'
 import Layout from "./layout";
-import { Header, Home, Footer, About, Contact, User } from "./components";
+import { Header, Home, Footer, About, Contact, User, Github } from "./components";
+import { githubInfoLoader } from './components/Github/Github';
 
 
 const router = createBrowserRouter( [
@@ -26,6 +27,11 @@ const router = createBrowserRouter( [
       {
         path: "user/:userid",
         element: <User />
+      },
+      {
+        loader : githubInfoLoader,
+        path: "github",
+        element: <Github />
       }
     ]
   }
